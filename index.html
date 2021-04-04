@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+      let xhttp;
+      function createHttpRequest() {
+        xhttp = new XMLHttpRequest();
+      }
+
+      function mySend() {
+        createHttpRequest();
+        xhttp.onreadystatechange = callFunction;
+        xhttp.open('GET', './sample.txt', true); //비동기
+        xhttp.send(null); //GET
+      }
+
+      function callFunction() {
+        if (xhttp.readyState === 4) {
+          if (xhttp.status === 200) {
+            let resData = xhttp.responseText;
+            document.getElementById('result').innerHTML = resData;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="box">
+      <span>일반 텍스트 파일 실습</span> <br />
+      <button onclick="mySend()">파일수신</button>
+      <span class="icon">push me</span>
+      <div id="result">---</div>
+    </div>
+  </body>
+</html>
