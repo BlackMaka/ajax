@@ -2,39 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script>
-      let xhttp;
-      function createHttpRequest() {
-        xhttp = new XMLHttpRequest();
-      }
-
-      function mySend() {
-        createHttpRequest();
-        xhttp.onreadystatechange = callFunction;
-        xhttp.open('POST', './sample.jsp', true);
-        let sendString = 'name=수한&email=aaa';
-        xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhttp.send(sendString); //GET
-      }
-
-      function callFunction() {
-        if (xhttp.readyState === 4) {
-          if (xhttp.status === 200) {
-            const resData = xhttp.responseText;
-            document.getElementById('result').innerHTML = resData;
-          }
-        }
-      }
-    </script>
+    <title>Dom 개요</title>
   </head>
   <body>
-    <div class="box">
-      <span>일반 텍스트 파일 실습</span> <br />
-      <button onclick="mySend()">파일수신</button>
-      <span class="icon">push me</span>
-      <div id="result">---</div>
-    </div>
+    <script>
+      let header = document.createElement('h1');
+      let headerText = document.createTextNode('DOM 생성');
+      header.appendChild(headerText);
+      document.body.appendChild(header);
+    </script>
   </body>
 </html>
