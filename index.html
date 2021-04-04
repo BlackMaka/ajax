@@ -5,13 +5,25 @@
     <title>Dom 개요</title>
   </head>
   <body>
+    <h1 id="header">헤더입니다.</h1>
+    <p id="p1">p1입니다</p>
+    <p id="p2">p2입니다</p>
+    <s id="del">삭제노드</s>
     <script>
-      let img = document.createElement('img');
-      img.setAttribute('src', 'test.jpg');
-      img.setAttribute('width', '200');
-      img.setAttribute('height', '200');
-      document.body.appendChild(img);
-      console.log(img.getAttribute('src'));
+      //   let content = '<ul><li>사과</li><li>배</li></ul>';
+      //   document.body.innerHTML = content;
+
+      let h1 = document.getElementById('header');
+      let p1 = document.getElementById('p1');
+      let p2 = document.getElementById('p2');
+      console.log(h1.innerHTML);
+
+      let p = document.getElementsByTagName('p');
+      for (let i = 0; i < p.length; i++) {
+        console.log(p[i].innerHTML);
+      }
+      let del = document.getElementById('del');
+      document.body.removeChild(del);
     </script>
   </body>
 </html>
