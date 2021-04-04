@@ -13,7 +13,7 @@
       function mySend() {
         createHttpRequest();
         xhttp.onreadystatechange = callFunction;
-        xhttp.open('GET', './sample.json', true); //비동기
+        xhttp.open('GET', './sample.jsp?name=수한&email=aaa', true); //비동기
         xhttp.send(null); //GET
       }
 
@@ -21,11 +21,7 @@
         if (xhttp.readyState === 4) {
           if (xhttp.status === 200) {
             const resData = xhttp.responseText;
-            const jsonObj = eval('(' + resData + ')');
-            //const jsonObj = JSON.parse(resData);
-            const name = jsonObj.name;
-            const email = jsonObj.email;
-            document.getElementById('result').innerHTML = `${name} <h6> email : ${email}</h6>`;
+            document.getElementById('result').innerHTML = resData;
           }
         }
       }
