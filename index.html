@@ -13,15 +13,19 @@
       function mySend() {
         createHttpRequest();
         xhttp.onreadystatechange = callFunction;
-        xhttp.open('GET', './sample.txt', true); //비동기
+        xhttp.open('GET', './sample.xml', true); //비동기
         xhttp.send(null); //GET
       }
 
       function callFunction() {
         if (xhttp.readyState === 4) {
           if (xhttp.status === 200) {
-            let resData = xhttp.responseText;
-            document.getElementById('result').innerHTML = resData;
+            let resData = xhttp.responseXML;
+            const names = resData.getElementsByTagName('name');
+            const name = names[0].firstChild.nodeValue;
+            const emails = resData.getElementsByTagName('email');
+            const email = emails[0].firstChild.nodeValue;
+            document.getElementById('result').innerHTML = `${name} <h6> email : ${email}</h6>`;
           }
         }
       }

@@ -31,7 +31,7 @@ button:hover + .icon {
   animation: getRslt 0.5s linear infinite;
 }
 
-#result {
+.result {
   padding: 10px;
   color: darkcyan;
   text-decoration: dotted;
