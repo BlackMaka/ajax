@@ -1,3 +1,0 @@
-# ajax
-
-- first test

@@ -2,28 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Dom 개요</title>
+    <title>Document</title>
+    <script src="./jquery-1.12.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        console.log($('div')[0].innerHTML);
+        console.log($('.cname').first().text());
+        console.log($('.cname').last().text());
+        $('.cname').css('border', '2px solid red');
+        $('.cname.other').css('color', 'red');
+        $('div, p.myClass').css('text-decoration', 'underline');
+      });
+    </script>
   </head>
   <body>
-    <h1 id="header">헤더입니다.</h1>
-    <p id="p1">p1입니다</p>
-    <p id="p2">p2입니다</p>
-    <s id="del">삭제노드</s>
-    <script>
-      //   let content = '<ul><li>사과</li><li>배</li></ul>';
-      //   document.body.innerHTML = content;
+    <div class="cname">DIV1</div>
+    <div class="cname other">DIV2</div>
 
-      let h1 = document.getElementById('header');
-      let p1 = document.getElementById('p1');
-      let p2 = document.getElementById('p2');
-      console.log(h1.innerHTML);
-
-      let p = document.getElementsByTagName('p');
-      for (let i = 0; i < p.length; i++) {
-        console.log(p[i].innerHTML);
-      }
-      let del = document.getElementById('del');
-      document.body.removeChild(del);
-    </script>
+    <div>hello</div>
+    <p class="myClass">myClass</p>
+    <p class="notMyClass">NotMyClass</p>
   </body>
 </html>
