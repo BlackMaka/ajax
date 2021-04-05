@@ -7,29 +7,31 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $(':button').css('border', '3px solid red');
-        $('#disable').click(function () {
-          $('input[type="text"]:enabled').removeAttr('enabled');
-          $('input[type="text"]:enabled').attr('disabled', 'disabled');
-        });
+        $('input:checked').wrap('<span></span>').parent().css('border', '3px dotted red');
+        $(':text').val($('input:checked').val());
 
-        $('#enable').click(function () {
-          $('input[type="text"]:disabled').removeAttr('disabled');
-          $('input[type="text"]:disabled').attr('enabled', 'enabled');
-        });
-
-        $('form').submit(function (e) {
-          e.preventDefault();
+        $('select').change(function () {
+          let data = $(':selected').text();
+          $('#selectedSpan').text(data);
         });
       });
     </script>
   </head>
   <body>
     <fieldset>
-      <input type="text" id="first" />
-      <input type="text" id="second" disabled />
-      <input type="button" value="enable" id="enable" />
-      <button id="disable">disable</button>
+      사과 <input type="checkbox" checked value="사과" /><br />
+      배 <input type="checkbox" value="배" /><br />
+      바나나 <input type="checkbox" value="바나나" /><br />
+      <input type="text" />
     </fieldset>
+
+    <form>
+      <select name="phone" id="">
+        <option>010</option>
+        <option selected>011</option>
+        <option>02</option>
+      </select>
+    </form>
+    선택된 값 : <span id="selectedSpan"></span>
   </body>
 </html>
