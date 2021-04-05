@@ -7,34 +7,32 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('div').find('p').addBack().css('color', 'red');
-        //p를 찾아 css먹이고 추가로 그 앞전 (back)도 div도 스타일 add해라
-
-        $('ul').find('li').contents().remove('ul');
-        $('ul')
-          .find('.foo')
-          .css('color', 'blue')
-          .end()
-          .find('.foo2')
-          .css('textDecoration', 'underline');
+        $('ul.lv2').children().css('color', 'red');
+        $('ul.lv2').children('.lv2-item2').css('color', 'dodgerblue');
+        $('.lv3-item2').closest('ul').css('backgroundColor','teal')
+        $('div').find('span').css('color','blue');
+        $('div').children('span').css('backgroundColor','crimson')
       });
     </script>
   </head>
   <body>
-    <div>
-      div....
-      <p>p....</p>
-    </div>
-    <ul>
+    <ul class="lv1">
       <li>item1</li>
       <li>
         item2
-        <ul>
+        <ul class="lv2">
           <li>item2-1</li>
+          <li class="lv2-item2">item2-2</li>
         </ul>
+        <li>item3
+            <ul class="lv3">
+                <li>item3-1</li>
+                <li class="lv3-item2">item3-2</li>
+            </ul>
+        </li>
       </li>
-      <li class="foo">item3</li>
-      <li class="foo2">item4</li>
     </ul>
+    <div><span>횡길동</span>, 이순신</div>
+    <div>유관수<p><span>김메가</span></p></div>
   </body>
 </html>
