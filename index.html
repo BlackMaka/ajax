@@ -5,22 +5,43 @@
     <title>Document</title>
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
-      $(document).ready(function () {
-        console.log($('div')[0].innerHTML);
-        console.log($('.cname').first().text());
-        console.log($('.cname').last().text());
-        $('.cname').css('border', '2px solid red');
-        $('.cname.other').css('color', 'red');
-        $('div, p.myClass').css('text-decoration', 'underline');
+      $(function () {
+        $('ul.topnav>li').css({ border: '1px solid red' });
+
+        $('form input').css({ border: '2px double yellowgreen' });
+        $('form fieldset input').css('backgroundColor', 'tomato');
+        $('label + input').css('color', 'blue').val('blueLabel');
+        $('#prev ~ div').css('background-color', 'teal');
       });
     </script>
   </head>
   <body>
-    <div class="cname">DIV1</div>
-    <div class="cname other">DIV2</div>
+    <ul class="topnav">
+      <li>아이템1</li>
+      <li>
+        아이템2
+        <ul>
+          <li>중첩된 아이템1</li>
+          <li>중첩된 아이템2</li>
+          <li>중첩된 아이템3</li>
+        </ul>
+      </li>
+      <li>아이템3</li>
+    </ul>
 
-    <div>hello</div>
-    <p class="myClass">myClass</p>
-    <p class="notMyClass">NotMyClass</p>
+    <form action="">
+      <div>기본폼</div>
+      <label for="name">기본폼 자식</label>
+      <input type="text" name="name" id="name" />
+      <fieldset>
+        <label for="newsletter">기본 폼의 자손, 필드셋의 자식</label>
+        <input type="text" name="newsletter" id="newsletter" />
+      </fieldset>
+    </form>
+    기본 폼의 형제 : <input type="text" name="none" />
+    <div id="prev">prev</div>
+    <div>sibling1</div>
+    <div>sibling2</div>
+    <div>sibling3</div>
   </body>
 </html>
