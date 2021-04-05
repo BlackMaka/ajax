@@ -7,32 +7,34 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('ul.lv2').children().css('color', 'red');
-        $('ul.lv2').children('.lv2-item2').css('color', 'dodgerblue');
-        $('.lv3-item2').closest('ul').css('backgroundColor','teal')
-        $('div').find('span').css('color','blue');
-        $('div').children('span').css('backgroundColor','crimson')
+        $('p').next('.selected').css('backgroundColor', 'yellow');
+        $('p').next().css('fontSize', '30px');
+        $('p:first').nextAll().css('textDecoration', 'underline');
+        $('p:first').nextAll('.selected').css('border', '1px solid red');
+        $('li.item3_1').offsetParent().css('color', 'red');
       });
     </script>
   </head>
   <body>
-    <ul class="lv1">
+    <p>홍길</p>
+    <p>이순</p>
+    <p class="selected">유관순</p>
+    <div><span>강감찬</span></div>
+
+    <ul>
       <li>item1</li>
-      <li>
+      <li style="position: relative">
         item2
-        <ul class="lv2">
-          <li>item2-1</li>
-          <li class="lv2-item2">item2-2</li>
-        </ul>
-        <li>item3
-            <ul class="lv3">
-                <li>item3-1</li>
-                <li class="lv3-item2">item3-2</li>
+        <ul>
+            item3
+            <ul>
+              <li class="item3_1">item3-1</li>
             </ul>
-        </li>
+          </li>
+        </ul>
       </li>
+      <li>
+       
     </ul>
-    <div><span>횡길동</span>, 이순신</div>
-    <div>유관수<p><span>김메가</span></p></div>
   </body>
 </html>
