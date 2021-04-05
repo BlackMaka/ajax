@@ -7,34 +7,40 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('p').next('.selected').css('backgroundColor', 'yellow');
-        $('p').next().css('fontSize', '30px');
-        $('p:first').nextAll().css('textDecoration', 'underline');
-        $('p:first').nextAll('.selected').css('border', '1px solid red');
-        $('li.item3_1').offsetParent().css('color', 'red');
+        $('.two').prev().css('color', 'tomato');
+        $('.two').prev('.one').css('backgroundColor', 'black');
+        $('.three').prevAll().css('border', '1px solid red');
+        $('.three').prevAll('.what').css('fontSize', '30px');
+
+        $('p').parent().css('color', 'blue');
+        $('p').parent('.selected').css('textDecoration', 'underline');
+        let parents = $('a')
+          .parents()
+          .each(function () {
+            console.log(this.tagName);
+          });
+
+        $('.sibling').siblings().css('textDecoration', 'underline');
+        $('.sibling').siblings('.selected').css('color', 'blue');
       });
     </script>
   </head>
   <body>
-    <p>홍길</p>
-    <p>이순</p>
-    <p class="selected">유관순</p>
-    <div><span>강감찬</span></div>
+    <div class="zero what">zero</div>
+    <div class="one">one</div>
+    <div class="two what">two</div>
+    <div class="three">three</div>
+    <div class="four">four</div>
+
+    <div><p>홍길동</p></div>
+    <div class="selected"><p>이순신</p></div>
+    <a href="#none">a parents</a>
 
     <ul>
       <li>item1</li>
-      <li style="position: relative">
-        item2
-        <ul>
-            item3
-            <ul>
-              <li class="item3_1">item3-1</li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li>
-       
+      <li class="sibling">item2</li>
+      <li>item3</li>
+      <li class="selected">item4</li>
     </ul>
   </body>
 </html>
