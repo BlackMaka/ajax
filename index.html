@@ -7,25 +7,34 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('div').has('p').css('color', 'dodgerblue');
-        $('div').first().css('textDecoration', 'underline');
-        $('div').last().css('backgroundColor', 'yellow');
-        let arr = $('div').map(function (idx, e) {
-          return $(this).text().toUpperCase();
-        });
-        for (let i = 0; i < arr.length; i++) {
-          console.log(arr[i]);
-        }
-        $('div').slice(2, 3).css('backgroundColor', 'red');
-        $('#add').css('backgroundColor', 'dodgerblue').add('p').css('fontWeight', '30px');
+        $('div').find('p').addBack().css('color', 'red');
+        //p를 찾아 css먹이고 추가로 그 앞전 (back)도 div도 스타일 add해라
+
+        $('ul').find('li').contents().remove('ul');
+        $('ul')
+          .find('.foo')
+          .css('color', 'blue')
+          .end()
+          .find('.foo2')
+          .css('textDecoration', 'underline');
       });
     </script>
   </head>
   <body>
-    <div>item1</div>
-    <div><p>item2</p></div>
-    <div>item3</div>
-    <div>item4</div>
-    <span id="add">안녕add</span>
+    <div>
+      div....
+      <p>p....</p>
+    </div>
+    <ul>
+      <li>item1</li>
+      <li>
+        item2
+        <ul>
+          <li>item2-1</li>
+        </ul>
+      </li>
+      <li class="foo">item3</li>
+      <li class="foo2">item4</li>
+    </ul>
   </body>
 </html>
