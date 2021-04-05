@@ -7,23 +7,32 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('div:contains("Jhon")').css('textDecoration', 'underline');
-        $('input:empty').val($('div:first-child').text());
-        $('div:has(p)').css({ fontWeight: '900', color: 'dodgerblue' });
-        $('p:parent').css('backgroundColor', 'yellow');
+        $('div').eq(0).text('index 0').end().eq(1).text('index 1');
+        $('li')
+          .filter(':even')
+          .css('backgroundColor', 'green')
+          .end()
+          .filter('.orange, #apple')
+          .css('fontSize', '30px');
+        $('div')
+          .filter(function (idx, e) {
+            return idx % 2 == 1;
+          })
+          .css('backgroundColor', 'blue');
       });
     </script>
   </head>
   <body>
-    <div>Jhon resig</div>
-    <div>Martin</div>
-    <div>Mc. Jhon sina</div>
-    <div>Hello</div>
-    <div>
-      <span>Mr. Jhon</span>
-    </div>
     <div></div>
-    <input type="text" />
-    <div><p>홍길동</p></div>
+    <div></div>
+    <div>인덱스 3번입니당</div>
+    <ul>
+      <li>아이템1</li>
+      <li>아이템2</li>
+      <li class="orange">아이템3</li>
+      <li>아이템4</li>
+      <li id="apple">아이템5</li>
+      <li>아이템6</li>
+    </ul>
   </body>
 </html>
