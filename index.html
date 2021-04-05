@@ -7,31 +7,23 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('input:checked').wrap('<span></span>').parent().css('border', '3px dotted red');
-        $(':text').val($('input:checked').val());
-
-        $('select').change(function () {
-          let data = $(':selected').text();
-          $('#selectedSpan').text(data);
-        });
+        $('div:contains("Jhon")').css('textDecoration', 'underline');
+        $('input:empty').val($('div:first-child').text());
+        $('div:has(p)').css({ fontWeight: '900', color: 'dodgerblue' });
+        $('p:parent').css('backgroundColor', 'yellow');
       });
     </script>
   </head>
   <body>
-    <fieldset>
-      사과 <input type="checkbox" checked value="사과" /><br />
-      배 <input type="checkbox" value="배" /><br />
-      바나나 <input type="checkbox" value="바나나" /><br />
-      <input type="text" />
-    </fieldset>
-
-    <form>
-      <select name="phone" id="">
-        <option>010</option>
-        <option selected>011</option>
-        <option>02</option>
-      </select>
-    </form>
-    선택된 값 : <span id="selectedSpan"></span>
+    <div>Jhon resig</div>
+    <div>Martin</div>
+    <div>Mc. Jhon sina</div>
+    <div>Hello</div>
+    <div>
+      <span>Mr. Jhon</span>
+    </div>
+    <div></div>
+    <input type="text" />
+    <div><p>홍길동</p></div>
   </body>
 </html>
