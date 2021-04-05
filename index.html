@@ -7,38 +7,29 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('input').click(function () {
-          $('input:focus').css('backgroundColor', 'dodgerblue');
-          $('input:not(:focus)').removeAttr('style');
+        $(':button').css('border', '3px solid red');
+        $('#disable').click(function () {
+          $('input[type="text"]:enabled').removeAttr('enabled');
+          $('input[type="text"]:enabled').attr('disabled', 'disabled');
         });
 
-        $('span:first-child').css('text-decoration', 'underline');
-        $('span:last-child').css('border', '1px solid blue');
-        $('span:nth-child(2)').css('fontWeight', 'bold');
-        // $('span:nth-child(2n)').css('fontWeight', 'bold');   2,4,6,8 ...
-        // $('span:nth-child(2n+1)').css('fontWeight', 'bold'); 1,3,5,7 ...
-        $('span:nth-child(odd)').css('color', 'green');
+        $('#enable').click(function () {
+          $('input[type="text"]:disabled').removeAttr('disabled');
+          $('input[type="text"]:disabled').attr('enabled', 'enabled');
+        });
 
-        $('span:only-child').removeAttr('style').css('color', 'red'); //span 자식이 하나있는 span만
+        $('form').submit(function (e) {
+          e.preventDefault();
+        });
       });
     </script>
   </head>
   <body>
-    <input type="text" value="one" />
-    <input type="text" value="two" />
-
-    <div>
-      <span>이상혁</span>
-      <span>박지성</span>
-      <span>클템</span>
-    </div>
-    <div>
-      <span>ㄴㄴㄴ</span>
-      <span>ㅇㅇㅇ</span>
-      <span>ㄹㄹㄹ</span>
-    </div>
-    <div>
-      <span>only-child</span>
-    </div>
+    <fieldset>
+      <input type="text" id="first" />
+      <input type="text" id="second" disabled />
+      <input type="button" value="enable" id="enable" />
+      <button id="disable">disable</button>
+    </fieldset>
   </body>
 </html>
