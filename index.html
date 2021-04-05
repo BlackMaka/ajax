@@ -7,39 +7,25 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('li').not(':even').css('backgroundColor', 'green');
-        $('li')
-          .not(function (idx, e) {
-            return idx % 3 == 2;
-          })
-          .css('fontSize', '30px');
-
-        $('ul').click(function (event) {
-          let target = $(event.target);
-          if (target.is('li')) {
-            target.css('border', '1px solid red');
-            let isStrong = target.is(function () {
-              return $('strong', this).length == 1;
-            });
-            if (isStrong) {
-              target.css('textDecoration', 'underline');
-            }
-          }
+        $('div').has('p').css('color', 'dodgerblue');
+        $('div').first().css('textDecoration', 'underline');
+        $('div').last().css('backgroundColor', 'yellow');
+        let arr = $('div').map(function (idx, e) {
+          return $(this).text().toUpperCase();
         });
+        for (let i = 0; i < arr.length; i++) {
+          console.log(arr[i]);
+        }
+        $('div').slice(2, 3).css('backgroundColor', 'red');
+        $('#add').css('backgroundColor', 'dodgerblue').add('p').css('fontWeight', '30px');
       });
     </script>
   </head>
   <body>
-    <div></div>
-    <div></div>
-    <div>인덱스 3번입니당</div>
-    <ul>
-      <li>아이템1</li>
-      <li>아이템2</li>
-      <li>아이템3</li>
-      <li>아이템<strong>4</strong></li>
-      <li>아이템5</li>
-      <li>아이템6</li>
-    </ul>
+    <div>item1</div>
+    <div><p>item2</p></div>
+    <div>item3</div>
+    <div>item4</div>
+    <span id="add">안녕add</span>
   </body>
 </html>
