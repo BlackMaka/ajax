@@ -1,0 +1,22 @@
+div {
+  background-color: red;
+  border: 1px solid red;
+  width: 70px;
+  height: 70px;
+  margin: 0 3px;
+  float: left;
+}
+
+.toggleWidth {
+  width: 40px;
+}
+
+table {
+  margin-top: 100px;
+  clear: both;
+}
+
+span {
+  display: inline-block !important;
+  background-color: white;
+}

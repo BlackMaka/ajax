@@ -3,30 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('[id]').css('fontSize', '30px');
-        $('a[href = "https://www.naver.com"]').css('color', 'red');
-        $('a[href != "https://www.naver.com"]').css('color', 'blue');
-        $('a[href ^= https]').css('text-decoration', 'none');
-        $('a[href $= net]').css('backgroundColor', 'yellow');
-        $('div[class*="t1"]').css('color', 'dodgerblue');
-        $('div[class~="t2"]').css('color', 'blue');
-        $('input[id][name$=man]').css('fontSize', '16px').val('id도 있고 man글자 포함');
-        $(`input[value |= ${'en'}]`).css('border', '2px dotted blue');
+        $('#run').click(function () {
+          $(':animated').toggleClass('toggleWidth');
+        });
+        function aimateds() {
+          $('#ani').slideToggle('slow', aimateds);
+        }
+        aimateds();
+
+        $('td:eq(2)').css('backgroundColor', 'green');
+        $('td:eq(-2)').css('backgroundColor', 'green');
+
+        $('td:even').css('fontWeight', '800');
+        $('td:odd').css('color', 'dodgerblue');
+
+        $('td:first').css('backgroundColor', 'tomato');
+        $('td:last').css('backgroundColor', 'tomato');
+
+        $('td:gt(4)').css('textDecoration', 'underline');
+        $('td:gt(-2)').text('gt(-2)'); //7보다 크면 text바꿈
+
+        $('input:not(:checked) + span').css({ backgroundColor: 'white', color: 'red' });
       });
     </script>
   </head>
   <body>
-    <div>아이템1</div>
-    <div id="hey">아이템2</div>
-    <div id="there">아이템3</div>
-    <a href="https://www.naver.com">네이버</a>
-    <a href="https://www.daum.net">다음</a>
-    <div class="tes t1">테스트1</div>
-    <div class="tes t2">테스트2</div>
-    <input type="text" id="sss" name="new-man" />
-    <input type="text" value="en-UK" />
+    <button id="run">Run</button>
+    <div></div>
+    <div id="ani"></div>
+    <div></div>
+
+    <table border="1">
+      <tr>
+        <td>TD 0</td>
+        <td>TD 1</td>
+        <td>TD 2</td>
+      </tr>
+      <tr>
+        <td>TD 3</td>
+        <td>TD 4</td>
+        <td>TD 5</td>
+      </tr>
+      <tr>
+        <td>TD 6</td>
+        <td>TD 7</td>
+        <td>TD 8</td>
+      </tr>
+    </table>
+    <br />
+    <div><input type="checkbox" checked /><span>안녕1</span></div>
+    <div><input type="checkbox" checked /><span>안녕2</span></div>
+    <div><input type="checkbox" /><span>안녕3</span></div>
   </body>
 </html>
