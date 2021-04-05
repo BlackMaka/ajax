@@ -7,18 +7,25 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('div').eq(0).text('index 0').end().eq(1).text('index 1');
+        $('li').not(':even').css('backgroundColor', 'green');
         $('li')
-          .filter(':even')
-          .css('backgroundColor', 'green')
-          .end()
-          .filter('.orange, #apple')
-          .css('fontSize', '30px');
-        $('div')
-          .filter(function (idx, e) {
-            return idx % 2 == 1;
+          .not(function (idx, e) {
+            return idx % 3 == 2;
           })
-          .css('backgroundColor', 'blue');
+          .css('fontSize', '30px');
+
+        $('ul').click(function (event) {
+          let target = $(event.target);
+          if (target.is('li')) {
+            target.css('border', '1px solid red');
+            let isStrong = target.is(function () {
+              return $('strong', this).length == 1;
+            });
+            if (isStrong) {
+              target.css('textDecoration', 'underline');
+            }
+          }
+        });
       });
     </script>
   </head>
@@ -29,9 +36,9 @@
     <ul>
       <li>아이템1</li>
       <li>아이템2</li>
-      <li class="orange">아이템3</li>
-      <li>아이템4</li>
-      <li id="apple">아이템5</li>
+      <li>아이템3</li>
+      <li>아이템<strong>4</strong></li>
+      <li>아이템5</li>
       <li>아이템6</li>
     </ul>
   </body>
