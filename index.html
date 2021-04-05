@@ -6,42 +6,27 @@
     <script src="./jquery-1.12.4.min.js"></script>
     <script>
       $(function () {
-        $('ul.topnav>li').css({ border: '1px solid red' });
-
-        $('form input').css({ border: '2px double yellowgreen' });
-        $('form fieldset input').css('backgroundColor', 'tomato');
-        $('label + input').css('color', 'blue').val('blueLabel');
-        $('#prev ~ div').css('background-color', 'teal');
+        $('[id]').css('fontSize', '30px');
+        $('a[href = "https://www.naver.com"]').css('color', 'red');
+        $('a[href != "https://www.naver.com"]').css('color', 'blue');
+        $('a[href ^= https]').css('text-decoration', 'none');
+        $('a[href $= net]').css('backgroundColor', 'yellow');
+        $('div[class*="t1"]').css('color', 'dodgerblue');
+        $('div[class~="t2"]').css('color', 'blue');
+        $('input[id][name$=man]').css('fontSize', '16px').val('id도 있고 man글자 포함');
+        $(`input[value |= ${'en'}]`).css('border', '2px dotted blue');
       });
     </script>
   </head>
   <body>
-    <ul class="topnav">
-      <li>아이템1</li>
-      <li>
-        아이템2
-        <ul>
-          <li>중첩된 아이템1</li>
-          <li>중첩된 아이템2</li>
-          <li>중첩된 아이템3</li>
-        </ul>
-      </li>
-      <li>아이템3</li>
-    </ul>
-
-    <form action="">
-      <div>기본폼</div>
-      <label for="name">기본폼 자식</label>
-      <input type="text" name="name" id="name" />
-      <fieldset>
-        <label for="newsletter">기본 폼의 자손, 필드셋의 자식</label>
-        <input type="text" name="newsletter" id="newsletter" />
-      </fieldset>
-    </form>
-    기본 폼의 형제 : <input type="text" name="none" />
-    <div id="prev">prev</div>
-    <div>sibling1</div>
-    <div>sibling2</div>
-    <div>sibling3</div>
+    <div>아이템1</div>
+    <div id="hey">아이템2</div>
+    <div id="there">아이템3</div>
+    <a href="https://www.naver.com">네이버</a>
+    <a href="https://www.daum.net">다음</a>
+    <div class="tes t1">테스트1</div>
+    <div class="tes t2">테스트2</div>
+    <input type="text" id="sss" name="new-man" />
+    <input type="text" value="en-UK" />
   </body>
 </html>
